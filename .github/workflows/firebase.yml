@@ -1,0 +1,14 @@
+name: Deploy to Firebase Hosting
+on:
+  push:
+    branches:
+      - main  # replace with your default branch if not 'main'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: wzieba/Firebase-Distribution-Github-Action@v1
+        with:
+          appId: ${{secrets.FIREBASE_APP_ID}}
+          token: ${{secrets.FIREBASE_AUTH_TOKEN}}
