@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'OSRSFont';
+    src: url('osrsFont.ttf') format('truetype');
+  }
+  
+  h1 {
+    font-family: 'OSRSFont', sans-serif;
+    font-size: 100px;
+    text-align: center;
+  }
+  
