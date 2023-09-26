@@ -29,7 +29,7 @@ const CoxTracker = () => {
   useEffect(() => {
     const teamNames = ['goose', 'mx'];
 
-    axios.get('http://3.89.217.13:3000/fetchBoards', { params: { teamNames } })
+    axios.get('https://osrscharterships.com:3000/fetchBoards', { params: { teamNames } })
       .then(response => {
         // Parse the "state" property into an array
         const parsedBoardStates = response.data.map(item => ({

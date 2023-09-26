@@ -11,7 +11,7 @@ function App() {
             <Routes>
             <Route path="/" element={<JustenMeme/>} />
             <Route path="/gooseCoxBingo" element={<CoxTracker/>} />
-            <Route path="/gooseCoxBingoAdmin" element={<AdminPage/>} />
+            <Route path="/dontgivethisfuckingurlaway" element={<AdminPage/>} />
             </Routes>
           </div>
         </Router>

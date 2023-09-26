@@ -12,7 +12,7 @@ const Board = ({ teamName, images, isClickable, tileStates: initialTileStates })
     setTileStates(newTileStates);
   
     try {
-      await axios.post('http://3.89.217.13:3000/updateBoard', {
+      await axios.post('https://osrscharterships.com:3000/updateBoard', {
         teamName,
         tileStates: newTileStates,
       });
