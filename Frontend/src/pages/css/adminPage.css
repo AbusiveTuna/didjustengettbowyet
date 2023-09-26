@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'OSRSFont';
+    src: url('./osrsFont.ttf') format('truetype');
+  }
+  
+body {
+    background-color: black;
+  }
+  
+  .admin {
+    font-family: 'OSRSFont', sans-serif;
+    font-size: 20px;
+    text-align: center;
+    color: #f9d000;
+    display: flex; /* Add this line */
+    justify-content: space-around; /* Adjust as needed */
+}

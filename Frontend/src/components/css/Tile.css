@@ -1,0 +1,4 @@
+.inactive img {
+    filter: grayscale(100%);
+  }
+  

@@ -1,0 +1,14 @@
+.board-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 128px);
+  row-gap: 20px;
+  column-gap: 0px;
+  border: 2px solid #f9d000;
+}
+
+.board-grid img {
+  width: 64px;
+  height: 64px;
+}
+
+  
