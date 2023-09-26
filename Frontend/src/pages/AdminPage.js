@@ -18,18 +18,10 @@ import twistedBow from '../resources/twistedbow.png';
 import './css/adminPage.css';
 
 const images = [
-    arcane,
-    dex,
-    dhcb,
-    dinh,
-    dclaws,
-    hat,
-    bottoms,
-    top,
-    twistyb,
-    maul,
-    kodai,
-    twistedBow
+  arcane, dex, twistyb,
+  dhcb,dinh,dclaws,
+  hat,top,bottoms,
+  maul,kodai,twistedBow
 ];
 
 const Admin = () => {
@@ -37,20 +29,25 @@ const Admin = () => {
 
   useEffect(() => {
     const teamNames = ['goose', 'mx'];
-    axios.get('https://3.89.217.13/fetchBoards', { params: { teamNames } })
-      .then(response => {
-        setBoardStates(response.data);
-      })
-      .catch(error => {
-        console.log('An error occurred while fetching the boards:', error);
-      });
-  }, []);
+    axios.get('http://3.89.217.13:3000/fetchBoards', { params: { teamNames } })
+    .then(response => {
+      const parsedBoardStates = response.data.map(item => ({
+        ...item,
+        tileStates: JSON.parse(item.state),
+      }));
+
+      setBoardStates(parsedBoardStates);
+    })
+    .catch(error => {
+      console.log('An error occurred while fetching the boards:', error);
+    });
+}, []);
 
   return (
     <div className="admin">
       <h1>Admin Page</h1>
       {boardStates.map((boardState, index) => (
-        <Board teamName={boardState.teamName} images={images} isClickable={true} tileStates={boardState.tileStates} />
+        <Board teamName={boardState.teamname} images={images} isClickable={true} tileStates={boardState.tileStates} />
       ))}
     </div>
   );

@@ -1,4 +1,3 @@
-// src/pages/coxTracker.js
 import React, { useState, useEffect } from 'react';
 import Board from '../components/Board';
 import arcane from '../resources/arcane.png';
@@ -18,35 +17,27 @@ import axios from 'axios';
 import './css/coxTracker.css';
 
 const images = [
-    arcane, dex, twistyb,
-    dhcb,dinh,dclaws,
-    hat,top,bottoms,
-    maul,kodai,twistedBow
+  arcane, dex, twistyb,
+  dhcb,dinh,dclaws,
+  hat,top,bottoms,
+  maul,kodai,twistedBow
 ];
 
 const CoxTracker = () => {
-  //const [teamKCs, setTeamKCs] = useState({});
-
-//once aws is setup
   const [boardStates, setBoardStates] = useState([]);
 
-  
   useEffect(() => {
     const teamNames = ['goose', 'mx'];
 
-    // teamNames.forEach(teamName => {
-    //   axios.get('https://templeosrs.com/getKCUpdate', { params: { teamName } })
-    //     .then(response => {
-    //       setTeamKCs(prevState => ({ ...prevState, [teamName]: response.data }));
-    //     })
-    //     .catch(error => {
-    //       console.log(`An error occurred while fetching the KC for team ${teamName}:`, error);
-    //     });
-    // });
-
-    axios.get('https://3.89.217.13/fetchBoards', { params: { teamNames } })
+    axios.get('http://3.89.217.13:3000/fetchBoards', { params: { teamNames } })
       .then(response => {
-        setBoardStates(response.data);
+        // Parse the "state" property into an array
+        const parsedBoardStates = response.data.map(item => ({
+          ...item,
+          tileStates: JSON.parse(item.state),
+        }));
+
+        setBoardStates(parsedBoardStates);
       })
       .catch(error => {
         console.log('An error occurred while fetching the boards:', error);
@@ -57,8 +48,7 @@ const CoxTracker = () => {
     <div className="cox-tracker">
       {boardStates.map((boardState, index) => (
         <div key={index}>
-          <Board teamName={boardState.teamName} images={images} isClickable={false} tileStates={boardState.tileStates} />
-          {/* <p>Total CoX KC: 420{teamKCs[boardState.teamName]}</p> */}
+          <Board teamName={boardState.teamname} images={images} isClickable={false} tileStates={boardState.tileStates} />
         </div>
       ))}
     </div>
