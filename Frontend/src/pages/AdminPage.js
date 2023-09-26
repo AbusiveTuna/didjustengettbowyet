@@ -29,7 +29,7 @@ const Admin = () => {
 
   useEffect(() => {
     const teamNames = ['goose', 'mx'];
-    axios.get('https://3.89.217.13:3000/fetchBoards', { params: { teamNames } })
+    axios.get('https://osrscharterships.com:3000/fetchBoards', { params: { teamNames } })
     .then(response => {
       const parsedBoardStates = response.data.map(item => ({
         ...item,
