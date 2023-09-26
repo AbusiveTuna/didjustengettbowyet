@@ -11,6 +11,9 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
 
+      - name: CD dir
+        run: cd Frontend
+
       - name: Install Dependencies
         run: npm install
 
