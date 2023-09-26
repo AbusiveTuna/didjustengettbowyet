@@ -33,27 +33,18 @@ const images = [
 ];
 
 const Admin = () => {
+  const [boardStates, setBoardStates] = useState([]);
 
-  const initialBoardStates = [
-    { teamName: 'Admin Board 1', tileStates: Array(images.length).fill(false) },
-    { teamName: 'Admin Board 2', tileStates: Array(images.length).fill(false) },
-  ];
-
-  const [boardStates, setBoardStates] = useState(initialBoardStates);
-
-  //once aws is setup
-  // const [boardStates, setBoardStates] = useState([]);
-
-  // useEffect(() => {
-  //   const teamNames = ['Team1', 'Team2']; // replace with your actual team names
-  //   axios.get('/fetchBoards', { params: { teamNames } })
-  //     .then(response => {
-  //       setBoardStates(response.data);
-  //     })
-  //     .catch(error => {
-  //       console.log('An error occurred while fetching the boards:', error);
-  //     });
-  // }, []);
+  useEffect(() => {
+    const teamNames = ['goose', 'mx'];
+    axios.get('https://3.89.217.13/fetchBoards', { params: { teamNames } })
+      .then(response => {
+        setBoardStates(response.data);
+      })
+      .catch(error => {
+        console.log('An error occurred while fetching the boards:', error);
+      });
+  }, []);
 
   return (
     <div className="admin">

@@ -12,7 +12,7 @@ const Board = ({ teamName, images, isClickable, tileStates: initialTileStates })
     setTileStates(newTileStates);
   
     try {
-      await axios.post('changeMe.com/updateBoard', {
+      await axios.post('https://3.89.217.13/updateBoard', {
         teamName,
         tileStates: newTileStates,
       });

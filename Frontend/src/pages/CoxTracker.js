@@ -25,41 +25,33 @@ const images = [
 ];
 
 const CoxTracker = () => {
-  const initialBoardStates = [
-    { teamName: "Goose's Geese", tileStates: Array(images.length).fill(false) },
-    { teamName: "MX's MTXers", tileStates: Array(images.length).fill(false) },
-  ];
-
-  const [boardStates, setBoardStates] = useState(initialBoardStates);
-  
-
   const [teamKCs, setTeamKCs] = useState({});
 
 //once aws is setup
-  //const [boardStates, setBoardStates] = useState([]);
+  const [boardStates, setBoardStates] = useState([]);
 
   
-  // useEffect(() => {
-  //   const teamNames = ['Goose', 'MX'];
+  useEffect(() => {
+    const teamNames = ['goose', 'mx'];
 
-  //   teamNames.forEach(teamName => {
-  //     axios.get('https://templeosrs.com/getKCUpdate', { params: { teamName } })
-  //       .then(response => {
-  //         setTeamKCs(prevState => ({ ...prevState, [teamName]: response.data }));
-  //       })
-  //       .catch(error => {
-  //         console.log(`An error occurred while fetching the KC for team ${teamName}:`, error);
-  //       });
-  //   });
+    teamNames.forEach(teamName => {
+      axios.get('https://templeosrs.com/getKCUpdate', { params: { teamName } })
+        .then(response => {
+          setTeamKCs(prevState => ({ ...prevState, [teamName]: response.data }));
+        })
+        .catch(error => {
+          console.log(`An error occurred while fetching the KC for team ${teamName}:`, error);
+        });
+    });
 
-  //   axios.get('/fetchBoards', { params: { teamNames } })
-  //     .then(response => {
-  //       setBoardStates(response.data);
-  //     })
-  //     .catch(error => {
-  //       console.log('An error occurred while fetching the boards:', error);
-  //     });
-  // }, []);
+    axios.get('https://3.89.217.13/fetchBoards', { params: { teamNames } })
+      .then(response => {
+        setBoardStates(response.data);
+      })
+      .catch(error => {
+        console.log('An error occurred while fetching the boards:', error);
+      });
+  }, []);
 
   return (
     <div className="cox-tracker">
