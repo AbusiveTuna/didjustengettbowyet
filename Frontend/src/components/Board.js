@@ -3,9 +3,9 @@ import axios from 'axios';
 import Tile from './Tile';
 import './css/Board.css';
 
-const Board = ({ teamName, images, isClickable }) => {
-  const [tileStates, setTileStates] = useState(Array(images.length).fill(false));
-
+const Board = ({ teamName, images, isClickable, tileStates: initialTileStates }) => {
+  const [tileStates, setTileStates] = useState(initialTileStates);
+  
   const handleTileClick = async (index) => {
     const newTileStates = [...tileStates];
     newTileStates[index] = !newTileStates[index];

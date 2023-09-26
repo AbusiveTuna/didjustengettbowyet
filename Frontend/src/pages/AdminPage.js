@@ -59,7 +59,7 @@ const Admin = () => {
     <div className="admin">
       <h1>Admin Page</h1>
       {boardStates.map((boardState, index) => (
-        <Board key={index} teamName={boardState.teamName} images={images} isClickable={true} />
+        <Board teamName={boardState.teamName} images={images} isClickable={true} tileStates={boardState.tileStates} />
       ))}
     </div>
   );

@@ -25,23 +25,49 @@ const images = [
 ];
 
 const CoxTracker = () => {
-  const [boardStates, setBoardStates] = useState([]);
+  const initialBoardStates = [
+    { teamName: "Goose's Geese", tileStates: Array(images.length).fill(false) },
+    { teamName: "MX's MTXers", tileStates: Array(images.length).fill(false) },
+  ];
 
-  useEffect(() => {
-    const teamNames = ['Goose', 'MX'];
-    axios.get('/fetchBoards', { params: { teamNames } })
-      .then(response => {
-        setBoardStates(response.data);
-      })
-      .catch(error => {
-        console.log('An error occurred while fetching the boards:', error);
-      });
-  }, []);
+  const [boardStates, setBoardStates] = useState(initialBoardStates);
+  
+
+  const [teamKCs, setTeamKCs] = useState({});
+
+//once aws is setup
+  //const [boardStates, setBoardStates] = useState([]);
+
+  
+  // useEffect(() => {
+  //   const teamNames = ['Goose', 'MX'];
+
+  //   teamNames.forEach(teamName => {
+  //     axios.get('https://templeosrs.com/getKCUpdate', { params: { teamName } })
+  //       .then(response => {
+  //         setTeamKCs(prevState => ({ ...prevState, [teamName]: response.data }));
+  //       })
+  //       .catch(error => {
+  //         console.log(`An error occurred while fetching the KC for team ${teamName}:`, error);
+  //       });
+  //   });
+
+  //   axios.get('/fetchBoards', { params: { teamNames } })
+  //     .then(response => {
+  //       setBoardStates(response.data);
+  //     })
+  //     .catch(error => {
+  //       console.log('An error occurred while fetching the boards:', error);
+  //     });
+  // }, []);
 
   return (
     <div className="cox-tracker">
       {boardStates.map((boardState, index) => (
-        <Board key={index} teamName={boardState.teamName} images={images} isClickable={false} />
+        <div key={index}>
+          <Board teamName={boardState.teamName} images={images} isClickable={false} tileStates={boardState.tileStates} />
+          <p>Total CoX KC: 420{teamKCs[boardState.teamName]}</p>
+        </div>
       ))}
     </div>
   );
