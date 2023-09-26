@@ -18,6 +18,8 @@ app.use(json());
 //add our routes
 app.use(router);
 
-export default app;
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+export default app;
