@@ -9,7 +9,7 @@ import router from './routes/route.js';
 tables();
 
 app.use(cors({
-    origin: ['https://didjustengettbowyet.com', 'http://localhost:3000'],
+    origin: ['https://didjustengettbowyet.com', 'https://localhost:3000'],
     optionsSuccessStatus: 200
 }));
 
