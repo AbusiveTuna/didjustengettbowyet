@@ -25,7 +25,7 @@ const images = [
 ];
 
 const CoxTracker = () => {
-  const [teamKCs, setTeamKCs] = useState({});
+  //const [teamKCs, setTeamKCs] = useState({});
 
 //once aws is setup
   const [boardStates, setBoardStates] = useState([]);
@@ -34,15 +34,15 @@ const CoxTracker = () => {
   useEffect(() => {
     const teamNames = ['goose', 'mx'];
 
-    teamNames.forEach(teamName => {
-      axios.get('https://templeosrs.com/getKCUpdate', { params: { teamName } })
-        .then(response => {
-          setTeamKCs(prevState => ({ ...prevState, [teamName]: response.data }));
-        })
-        .catch(error => {
-          console.log(`An error occurred while fetching the KC for team ${teamName}:`, error);
-        });
-    });
+    // teamNames.forEach(teamName => {
+    //   axios.get('https://templeosrs.com/getKCUpdate', { params: { teamName } })
+    //     .then(response => {
+    //       setTeamKCs(prevState => ({ ...prevState, [teamName]: response.data }));
+    //     })
+    //     .catch(error => {
+    //       console.log(`An error occurred while fetching the KC for team ${teamName}:`, error);
+    //     });
+    // });
 
     axios.get('https://3.89.217.13/fetchBoards', { params: { teamNames } })
       .then(response => {
@@ -58,7 +58,7 @@ const CoxTracker = () => {
       {boardStates.map((boardState, index) => (
         <div key={index}>
           <Board teamName={boardState.teamName} images={images} isClickable={false} tileStates={boardState.tileStates} />
-          <p>Total CoX KC: 420{teamKCs[boardState.teamName]}</p>
+          {/* <p>Total CoX KC: 420{teamKCs[boardState.teamName]}</p> */}
         </div>
       ))}
     </div>
