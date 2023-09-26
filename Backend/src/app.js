@@ -1,6 +1,6 @@
 import express, { json } from 'express';
 const app = express();
-const port = 443;
+const port = 3000;
 import cors from 'cors';
 import tables from './db/tables.js';
 import router from './routes/route.js';
