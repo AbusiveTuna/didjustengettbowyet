@@ -23,4 +23,5 @@ jobs:
           cd ~/didjustengettbowyet/Backend
           git pull origin main
           npm install
+          pkill -f "node src/app.js" || true
           nohup npm start &
