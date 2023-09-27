@@ -23,7 +23,7 @@ const credentials = {
 };
 
 app.use(cors({
-    origin: ['https://didjustengettbowyet.com', 'https://localhost:3000', '*'],
+    origin: '*',
     optionSuccessStatus: 200
 }));
 
