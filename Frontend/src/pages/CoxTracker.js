@@ -27,7 +27,7 @@ const CoxTracker = () => {
   const [boardStates, setBoardStates] = useState([]);
 
   useEffect(() => {
-    const teamNames = ['goose', 'mx'];
+    const teamNames = ["Goose's Gringos", 'MX and the Arcanes'];
 
     axios.get('https://osrscharterships.com:3000/fetchBoards', { params: { teamNames } })
       .then(response => {
