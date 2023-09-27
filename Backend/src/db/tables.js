@@ -12,7 +12,7 @@ const createTables = async () => {
     `);
 
     await pool.query(`
-    INSERT INTO bingoTeams (teamname, state) VALUES ('Goose's Gringos', $1)
+    INSERT INTO bingoTeams (teamname, state) VALUES ("Goose's Gringos", $1)
     ON CONFLICT (teamname) DO NOTHING;
   `, [JSON.stringify(Array(12).fill(false))]);
 
