@@ -23,7 +23,7 @@ const credentials = {
 };
 
 app.use(cors({
-    origin: ['https://didjustengettbowyet.com', 'https://localhost:3000', 'https://stunning-happiness-rvwg96vgxqr2qw-3000.app.github.dev'],
+    origin: ['https://didjustengettbowyet.com', 'https://localhost:3000', '*'],
     optionSuccessStatus: 200
 }));
 
