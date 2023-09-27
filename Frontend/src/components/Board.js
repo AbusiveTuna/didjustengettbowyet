@@ -25,7 +25,6 @@ const Board = ({ teamName, images, isClickable, tileStates: initialTileStates })
     }
   };
   
-
   return (
     <div className="board">
       <h2>{teamName}</h2>

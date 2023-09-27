@@ -12,6 +12,6 @@ body {
     font-size: 20px;
     text-align: center;
     color: #f9d000;
-    display: flex; /* Add this line */
-    justify-content: space-around; /* Adjust as needed */
+    display: flex;
+    justify-content: space-around;
 }

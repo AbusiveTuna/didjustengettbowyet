@@ -11,4 +11,14 @@
   height: 128px;
 }
 
+@media (max-width: 600px) {
+  .board-grid {
+    grid-template-columns: repeat(3, 64px);
+    row-gap: 10px;
+  }
+  .board-grid img {
+    width: 32px;
+    height: 32px;
+  }
+}
   

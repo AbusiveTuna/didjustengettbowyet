@@ -11,16 +11,6 @@ const createTables = async () => {
       );
     `);
 
-    await pool.query(`
-    INSERT INTO bingoTeams (teamname, state) VALUES ("Goose's Gringos", $1)
-    ON CONFLICT (teamname) DO NOTHING;
-  `, [JSON.stringify(Array(12).fill(false))]);
-
-    await pool.query(`
-        INSERT INTO bingoTeams (teamname, state) VALUES ('MX and the Arcanes', $1)
-        ON CONFLICT (teamname) DO NOTHING;
-    `, [JSON.stringify(Array(12).fill(false))]);
-
 } catch (err) {
     console.error(err);
   }
