@@ -30,7 +30,7 @@ router.get('/fetchBoards', async (req, res) => {
     try {
       const response = await axios.get('https://templeosrs.com/api/competition_info.php?id=23792');
       const data = response.data;
-    
+      console.log(response.data);
       const teamXP = {};
     
       for (const teamName in data.teams) {
