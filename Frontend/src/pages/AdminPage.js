@@ -31,7 +31,7 @@ const Admin = () => {
     const teamNames = ["Goose's Gringos", 'MX and the Arcanes'];
     axios.get('https://osrscharterships.com:3000/fetchBoards', { params: { teamNames } })
     .then(response => {
-      const parsedBoardStates = response.data.map(item => ({
+      let parsedBoardStates = response.data.map(item => ({
         ...item,
         tileStates: JSON.parse(item.state),
       }));
