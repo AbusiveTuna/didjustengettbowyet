@@ -28,7 +28,7 @@ router.get('/fetchBoards', async (req, res) => {
 
   router.get('/templeData', async (req, res) => {
     try {
-      const response = await axios.get('https://templeosrs.com/api/competition_info.php?id=23792');
+      const response = await axios.get('https://templeosrs.com/api/competition_info.php?id=23801');
       const data = response.data.data;
       const teamXP = {};
     
@@ -45,7 +45,7 @@ router.get('/fetchBoards', async (req, res) => {
 
   router.get('/templeDataCM', async (req, res) => {
     try {
-      const response = await axios.get('https://templeosrs.com/api/competition_info.php?id=23792');
+      const response = await axios.get('https://templeosrs.com/api/competition_info.php?id=23801&skill=40');
       const data = response.data.data;
       const teamXP = {};
     

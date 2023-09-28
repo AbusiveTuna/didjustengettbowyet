@@ -4,7 +4,6 @@ import axios from 'axios';
 const KC = ({ teamName }) => {
   const [kc, setKc] = useState(0);
   const [kcCM, setKcCM] = useState(0);
-  teamName = "Test2";
   useEffect(() => {
     axios.get('https://osrscharterships.com:3000/templeData')
       .then(response => {
