@@ -58,6 +58,12 @@ const CoxTracker = () => {
           tileStates: JSON.parse(item.state),
         }));
 
+        parsedBoardStates = parsedBoardStates.sort((a, b) => {
+          if (a.teamname === "Goose's Gringos") return -1;
+          if (b.teamname === "Goose's Gringos") return 1;
+          return 0;
+        });
+
         setBoardStates(parsedBoardStates);
       })
       .catch(error => {
