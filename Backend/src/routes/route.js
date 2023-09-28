@@ -29,9 +29,8 @@ router.get('/fetchBoards', async (req, res) => {
   router.get('/templeData', async (req, res) => {
     try {
       const response = await axios.get('https://templeosrs.com/api/competition_info.php?id=23792');
-      console.log(response);
+      console.log(console.log(JSON.stringify(response.data, null, 2)));
       const data = response.data;
-      console.log(response.data);
       const teamXP = {};
     
       for (const teamName in data.teams) {
