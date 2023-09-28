@@ -29,14 +29,27 @@ router.get('/fetchBoards', async (req, res) => {
   router.get('/templeData', async (req, res) => {
     try {
       const response = await axios.get('https://templeosrs.com/api/competition_info.php?id=23792');
-      console.log(JSON.stringify(response.data, null, 2));
       const data = response.data.data;
       const teamXP = {};
     
       for (const teamName in data.teams) {
-        console.log(data.teams);
-        console.log(teamName);
-        console.log("debugging");
+        teamXP[teamName] = data.teams[teamName].team_gain;
+      }
+    
+      res.json(teamXP);
+    } catch (error) {
+      console.log('An error occurred while fetching the data:', error);
+      res.status(500).json({ error: 'An error occurred while fetching the data.' });
+    }
+  });
+
+  router.get('/templeDataCM', async (req, res) => {
+    try {
+      const response = await axios.get('https://templeosrs.com/api/competition_info.php?id=23792');
+      const data = response.data.data;
+      const teamXP = {};
+    
+      for (const teamName in data.teams) {
         teamXP[teamName] = data.teams[teamName].team_gain;
       }
     
