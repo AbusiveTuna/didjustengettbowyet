@@ -9,7 +9,7 @@ const fetchData = (url, setFunction, teamName) => {
       if (data[teamName] !== undefined) {
         setFunction(data[teamName]);
       }
-      else if (data["Goose S Gringos"] && teamName == "Goose's Gringos") {
+      else if (data["Goose S Gringos"] && teamName === "Goose's Gringos") {
         setFunction(data[teamName]);
       }
     })
