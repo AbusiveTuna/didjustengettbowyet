@@ -1,7 +1,10 @@
 .inactive img {
     filter: grayscale(100%);
-  }
+    opacity: 0.2;
+}
+  
   
 .active img {
     filter: none;
+    opacity: 1;
 }
