@@ -1,0 +1,16 @@
+.kc-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center; 
+  }
+  
+.kc-group {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .kc-group p {
+    margin-right: 20px; 
+  }
+  

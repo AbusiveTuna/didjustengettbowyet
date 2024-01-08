@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+import './css/KC.css';
+
 const nameMap = {
-  "Goose's Gringos": "Goose S Gringos",
-  'MX and the Arcanes': "Mx And The Arcanes"
+  "TunaPhish": "TunaPhish",
+  'Team2': "Team2"
 };
 
 const fetchData = (url, setFunction, teamName) => {
@@ -22,19 +24,29 @@ const fetchData = (url, setFunction, teamName) => {
 
 
 const KC = ({ teamName }) => {
-  const [kc, setKc] = useState(0);
-  const [kcCM, setKcCM] = useState(0);
+  const [kcTob, setKcTob] = useState(0);
+  const [kcHMT, setKcHMT] = useState(0);
+  const [kcToa, setKcToa] = useState(0);
+  const [kcEToa, setKcEToa] = useState(0);
 
   useEffect(() => {
-    fetchData('https://osrscharterships.com:3000/templeData', setKc, teamName);
-    fetchData('https://osrscharterships.com:3000/templeDataCM', setKcCM, teamName);
+    fetchData('https://osrscharterships.com:3000/templeDataTob', setKcTob, teamName);
+    fetchData('https://osrscharterships.com:3000/templeDataHMT', setKcHMT, teamName);
+    fetchData('https://osrscharterships.com:3000/templeDataToa', setKcToa, teamName);
+    fetchData('https://osrscharterships.com:3000/templeDataEToa', setKcEToa, teamName);
   }, [teamName]);
 
   return (
-    <div>
-      <p>CoX KC: {kc}</p>
-      <p>CM KC: {kcCM}</p>
+  <div className="kc-container">
+    <div className="kc-group">
+      <p>Tob KC: {kcTob}</p>
+      <p>Toa KC: {kcToa}</p>
     </div>
+    <div className="kc-group">
+      <p>HMT KC: {kcHMT}</p>
+      <p>Expert Toa KC: {kcEToa}</p>
+    </div>
+  </div>
   );
 };
 

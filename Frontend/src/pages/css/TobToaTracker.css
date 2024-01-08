@@ -1,0 +1,17 @@
+@font-face {
+  font-family: 'OSRSFont';
+  src: url('./osrsFont.ttf') format('truetype');
+}
+
+body {
+  background-color: black;
+}
+
+.tob-toa-tracker {
+  font-family: 'OSRSFont', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: #f9d000;
+  display: flex;
+  justify-content: space-around;
+}

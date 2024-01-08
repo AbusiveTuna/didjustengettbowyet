@@ -1,10 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import JustenMeme from './pages/JustenMeme';
-import CoxTracker from './pages/CoxTracker';
-import TobTracker from './pages/TobTracker';
-import ToaTracker from './pages/ToaTracker';
-import AdminPage from './pages/AdminPage';
+import TobToaTracker from './pages/TobToaTracker';
+import AdminPage from './pages/TobToaAdminPage';
 import Toolbar from './components/Toolbar';
 import SiteCredits from './components/SiteCredits';
 
@@ -16,9 +14,8 @@ function App() {
             <SiteCredits />
             <Routes>
             <Route path="/" element={<JustenMeme/>} />
-            <Route path="/gooseCoxBingo" element={<CoxTracker/>} />
-            <Route path="/tob" element={<TobTracker/>} />
-            <Route path="/toa" element={<ToaTracker/>} />
+            <Route path="/tunaTobToaBingo" element={<TobToaTracker/>} />
+            <Route path="/tunaTobToaBingoAdminPage" element={<AdminPage/>}/>
             </Routes>
             
           </div>
