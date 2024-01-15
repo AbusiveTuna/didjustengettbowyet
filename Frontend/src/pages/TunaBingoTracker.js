@@ -40,13 +40,13 @@ import './css/TunaBingoTracker.css';
 const images = [
   arcane, dex, twistyb,
   dhcb,dinh,dclaws,
-  hat,top,bottoms,
+  ward,top,bottoms,
   maul,kodai,twistedBow,
   avernic,rapier,sangstaff,
-  justihelm,justichest,justilegs,
+  masorimask,justichest,justilegs,
   scythe, fang, lightbearer,
-  ward, masoribody,masorichaps,
-  masorimask,shadow
+  hat, masoribody,masorichaps,
+  justihelm,shadow
 ];
 
 function setDefaultBoardStates(setBoardStates) {
