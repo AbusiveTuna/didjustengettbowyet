@@ -26,7 +26,7 @@ const playersData = [
     { "name": "I got no Job", "amount": 10 },
     { "name": "Ninef", "amount": 0 },
     { "name": "P Dirty soda", "amount": 10 },
-    { "name": "Sailor Terry", "amount": 0 },
+    { "name": "Sailor Terry", "amount": 10 },
     { "name": "Shaharrav", "amount": 10 },
     { "name": "Slaymebb", "amount": 47 },
     { "name": "snp500", "amount": 0 },
