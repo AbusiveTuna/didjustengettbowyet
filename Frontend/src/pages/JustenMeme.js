@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
-import './css/justenMeme.css';
+
+
+import './css/JustenMeme.css';
 
 const JustenMeme = () => {
   useEffect(() => {

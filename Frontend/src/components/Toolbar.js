@@ -3,10 +3,10 @@ import './css/Toolbar.css';
 const Toolbar = () => {
   return (
     <div className="toolbar">
-      <a href="/">Did Justen Get His Tbow Yet?</a>
-      <a href="/tunaTobToaBingo">Tuna's Tob Toa Bingo</a>
-      <a href="https://templeosrs.com/groups/overview.php?id=2176">Ironman CC Group Page</a>
-      <a href="https://templeosrs.com/competitions/standings.php?id=23801">Temple OSRS Competition Page</a>
+      <a href="/draft">2024 Tuna/aSync Raid Completion Mega Draft</a>
+      <a href="/eventDetails">Raid Completion Bingo Details</a>
+      <a href="/tunaBingo">Raid Completion Bingo Tracker</a>
+      <a href="/previousEvents">Previous Events</a>
     </div>
   );
 };

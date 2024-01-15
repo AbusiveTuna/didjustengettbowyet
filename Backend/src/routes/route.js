@@ -26,41 +26,32 @@ router.get('/fetchBoards', async (req, res) => {
     }
   });
 
-  router.get('/templeData', async (req, res) => {
+  router.get('/templeDataAll', async (req, res) => {
+    const skills = [39, 40, 66, 85, 93, 94];
+    const baseUrl = 'https://templeosrs.com/api/competition_info.php?id=23801&skill=';
+  
     try {
-      const response = await axios.get('https://templeosrs.com/api/competition_info.php?id=23801');
-      const data = response.data.data;
-      const teamXP = {};
-    
-      for (const teamName in data.teams) {
-        teamXP[teamName] = data.teams[teamName].team_gain;
-      }
-    
-      res.json(teamXP);
+      const requests = skills.map(skill => axios.get(`${baseUrl}${skill}`));
+      const responses = await Promise.all(requests);
+  
+      const results = responses.reduce((acc, response, index) => {
+        const skill = skills[index];
+        const data = response.data.data;
+        const teamXP = {};
+  
+        for (const teamName in data.teams) {
+          teamXP[teamName] = data.teams[teamName].team_gain;
+        }
+  
+        acc[skill] = teamXP;
+        return acc;
+      }, {});
+  
+      res.json(results);
     } catch (error) {
       console.log('An error occurred while fetching the data:', error);
       res.status(500).json({ error: 'An error occurred while fetching the data.' });
     }
   });
-
-  router.get('/templeDataCM', async (req, res) => {
-    try {
-      const response = await axios.get('https://templeosrs.com/api/competition_info.php?id=23801&skill=40');
-      const data = response.data.data;
-      const teamXP = {};
-    
-      for (const teamName in data.teams) {
-        teamXP[teamName] = data.teams[teamName].team_gain;
-      }
-    
-      res.json(teamXP);
-    } catch (error) {
-      console.log('An error occurred while fetching the data:', error);
-      res.status(500).json({ error: 'An error occurred while fetching the data.' });
-    }
-  });
-  
-  
-
 
 export default router;

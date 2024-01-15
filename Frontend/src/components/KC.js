@@ -5,16 +5,33 @@ import './css/KC.css';
 
 const nameMap = {
   "TunaPhish": "TunaPhish",
-  'Team2': "Team2"
+  'Syncssinks': "Syncssinks"
 };
 
-const fetchData = (url, setFunction, teamName) => {
-  axios.get(url)
+const fetchData = (teamName, setKcData) => {
+  axios.get('https://osrscharterships.com:3000/templeDataAll')
     .then(response => {
-      let data = response.data;
+      const data = response.data;
       const serverName = nameMap[teamName];
-      if (data[serverName] !== undefined) {
-        setFunction(data[serverName]);
+      
+      // Update state for each raid
+      if (data[39] && data[39][serverName] !== undefined) {
+        setKcData(prevData => ({ ...prevData, kcCox: data[39][serverName] }));
+      }
+      if (data[40] && data[40][serverName] !== undefined) {
+        setKcData(prevData => ({ ...prevData, kcCM: data[40][serverName] }));
+      }
+      if (data[66] && data[66][serverName] !== undefined) {
+        setKcData(prevData => ({ ...prevData, kcTob: data[66][serverName] }));
+      }
+      if (data[85] && data[85][serverName] !== undefined) {
+        setKcData(prevData => ({ ...prevData, kcHMT: data[85][serverName] }));
+      }
+      if (data[93] && data[93][serverName] !== undefined) {
+        setKcData(prevData => ({ ...prevData, kcToa: data[93][serverName] }));
+      }
+      if (data[94] && data[94][serverName] !== undefined) {
+        setKcData(prevData => ({ ...prevData, kcEToa: data[94][serverName] }));
       }
     })
     .catch(error => {
@@ -22,31 +39,33 @@ const fetchData = (url, setFunction, teamName) => {
     });
 };
 
-
 const KC = ({ teamName }) => {
-  const [kcTob, setKcTob] = useState(0);
-  const [kcHMT, setKcHMT] = useState(0);
-  const [kcToa, setKcToa] = useState(0);
-  const [kcEToa, setKcEToa] = useState(0);
+  const [kcData, setKcData] = useState({
+    kcCox: 0,
+    kcCM: 0,
+    kcTob: 0,
+    kcHMT: 0,
+    kcToa: 0,
+    kcEToa: 0
+  });
 
   useEffect(() => {
-    fetchData('https://osrscharterships.com:3000/templeDataTob', setKcTob, teamName);
-    fetchData('https://osrscharterships.com:3000/templeDataHMT', setKcHMT, teamName);
-    fetchData('https://osrscharterships.com:3000/templeDataToa', setKcToa, teamName);
-    fetchData('https://osrscharterships.com:3000/templeDataEToa', setKcEToa, teamName);
+    fetchData(teamName, setKcData);
   }, [teamName]);
 
   return (
-  <div className="kc-container">
-    <div className="kc-group">
-      <p>Tob KC: {kcTob}</p>
-      <p>Toa KC: {kcToa}</p>
+    <div className="kc-container">
+      <div className="kc-group">
+        <p>Cox KC: {kcData.kcCox}</p>
+        <p>Tob KC: {kcData.kcTob}</p>
+        <p>Toa KC: {kcData.kcToa}</p>
+      </div>
+      <div className="kc-group">
+        <p>CM KC: {kcData.kcCM}</p>
+        <p>HMT KC: {kcData.kcHMT}</p>
+        <p>Expert Toa KC: {kcData.kcEToa}</p>
+      </div>
     </div>
-    <div className="kc-group">
-      <p>HMT KC: {kcHMT}</p>
-      <p>Expert Toa KC: {kcEToa}</p>
-    </div>
-  </div>
   );
 };
 

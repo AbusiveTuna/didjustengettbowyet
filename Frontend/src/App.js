@@ -1,8 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import JustenMeme from './pages/JustenMeme';
-import TobToaTracker from './pages/TobToaTracker';
-import AdminPage from './pages/TobToaAdminPage';
+import TunaBingoTracker from './pages/TunaBingoTracker';
+import EventDetails from './pages/EventDetails';
+import AdminPage from './pages/TunaBingoAdminPage';
+import Draft from './pages/Draft';
+import PreviousEvents from './pages/PreviousEvents';
 import Toolbar from './components/Toolbar';
 import SiteCredits from './components/SiteCredits';
 
@@ -14,8 +17,11 @@ function App() {
             <SiteCredits />
             <Routes>
             <Route path="/" element={<JustenMeme/>} />
-            <Route path="/tunaTobToaBingo" element={<TobToaTracker/>} />
-            <Route path="/tunaTobToaBingoAdminPage" element={<AdminPage/>}/>
+            <Route path="/tunaBingo" element={<TunaBingoTracker/>} />
+            <Route path="/eventDetails" element={<EventDetails/>} />
+            <Route path="/draft" element={<Draft/>} />
+            <Route path="/previousEvents" element={<PreviousEvents/>} />
+            <Route path="/tunaBingoAdminPage" element={<AdminPage/>}/>
             </Routes>
             
           </div>
