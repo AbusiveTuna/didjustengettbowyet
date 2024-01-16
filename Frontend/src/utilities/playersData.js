@@ -4,6 +4,7 @@ const playersData = [
     { "name": "Abrafebre", "amount": 10 },
     { "name": "AbusiveTunaa", "amount": 10 },
     { "name": "a sync", "amount": 10 },
+    { "name": "Combatt1ron", "amount": 10 },
     { "name": "chungy", "amount": 0 },
     { "name": "Connorz", "amount": 20 },
     { "name": "Desports Btw", "amount": 10 },
