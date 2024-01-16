@@ -24,7 +24,7 @@ const playersData = [
     { "name": "Mrkvic", "amount": 0 },
     { "name": "Nerding Out", "amount": 10 },
     { "name": "Noble Mobile", "amount": 0 },
-    { "name": "I got no Job", "amount": 10 },
+    { "name": "I got no Job", "amount": 0 },
     { "name": "Ninef", "amount": 30 },
     { "name": "P Dirty soda", "amount": 10 },
     { "name": "Sailor Terry", "amount": 10 },
