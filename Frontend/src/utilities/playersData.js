@@ -17,7 +17,7 @@ const playersData = [
     { "name": "Ironcg", "amount": 20 },
     { "name": "J mes", "amount": 10 },
     { "name": "Joan Of Arf", "amount": 10 },
-    { "name": "Justen", "amount": 0 },
+    { "name": "Justen", "amount": 10 },
     { "name": "Lord Oziach", "amount": 0 },
     { "name": "MilkMate", "amount": 0 },
     { "name": "MXIIA", "amount": 10 },
