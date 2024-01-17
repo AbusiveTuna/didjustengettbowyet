@@ -5,6 +5,7 @@ import TunaBingoTracker from './pages/TunaBingoTracker';
 import EventDetails from './pages/EventDetails';
 import AdminPage from './pages/TunaBingoAdminPage';
 import Draft from './pages/Draft';
+import DraftAdmin from './pages/DraftAdminPage';
 import PreviousEvents from './pages/PreviousEvents';
 import Toolbar from './components/Toolbar';
 import SiteCredits from './components/SiteCredits';
@@ -20,6 +21,7 @@ function App() {
             <Route path="/tunaBingo" element={<TunaBingoTracker/>} />
             <Route path="/eventDetails" element={<EventDetails/>} />
             <Route path="/draft" element={<Draft/>} />
+            <Route path="/draftAdmin" element={<DraftAdmin/>} />
             <Route path="/previousEvents" element={<PreviousEvents/>} />
             <Route path="/tunaBingoAdminPage" element={<AdminPage/>}/>
             </Routes>

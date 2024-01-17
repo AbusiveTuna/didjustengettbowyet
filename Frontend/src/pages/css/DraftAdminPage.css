@@ -1,0 +1,44 @@
+.draft-admin-page {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    padding: 20px;
+  }
+  
+  .team-container {
+    border: 2px solid #000;
+    width: 30%;
+    min-height: 300px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .players-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    border: 2px dashed #666;
+  }
+  
+  .player {
+    padding: 5px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    cursor: move;
+    text-align: center;
+  }
+  
+  .team-container.hovered {
+    background-color: #e3f2fd;
+  }
+  
+  h2 {
+    margin-bottom: 15px;
+  }
+  
