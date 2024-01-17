@@ -17,14 +17,22 @@ router.get('/fetchBoards', async (req, res) => {
   
   router.post('/updateBoard', async (req, res) => {
     const { teamName, tileStates } = req.body;
+  
     try {
-      await pool.query('UPDATE bingoTeams SET state = $1 WHERE teamname = $2', [JSON.stringify(tileStates), teamName]);
+      const teamExists = await pool.query('SELECT * FROM bingoTeams WHERE teamname = $1', [teamName]);
+  
+      if (teamExists.rows.length > 0) {
+        await pool.query('UPDATE bingoTeams SET state = $1 WHERE teamname = $2', [JSON.stringify(tileStates), teamName]);
+      } else {
+        await pool.query('INSERT INTO bingoTeams (teamname, state) VALUES ($1, $2)', [teamName, JSON.stringify(tileStates)]);
+      }
       res.status(200).json({ message: 'Board updated successfully.' });
     } catch (err) {
       console.error(err);
       res.status(500).json({ error: 'An error occurred while updating the board.' });
     }
   });
+  
 
   router.get('/templeDataAll', async (req, res) => {
     const skills = [39, 40, 66, 85, 93, 94];

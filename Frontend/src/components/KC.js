@@ -5,7 +5,7 @@ import './css/KC.css';
 
 const nameMap = {
   "TunaPhish": "TunaPhish",
-  'Syncssinks': "Syncssinks"
+  'Nsync': "Nsync"
 };
 
 const fetchData = (teamName, setKcData) => {
