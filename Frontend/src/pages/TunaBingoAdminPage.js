@@ -53,7 +53,7 @@ const Admin = () => {
   const [boardStates, setBoardStates] = useState([]);
 
   useEffect(() => {
-    const teamNames = ["TunaPhish", 'SyncsSinks'];
+    const teamNames = ["TunaPhish", 'Nsync'];
     axios.get('https://osrscharterships.com:3000/fetchBoards', { params: { teamNames } })
     .then(response => {
       let parsedBoardStates = response.data.map(item => ({
