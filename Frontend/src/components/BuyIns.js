@@ -6,7 +6,6 @@ import './css/BuyIns.css';
 const BuyIns = () => {
     const sortedPlayers = [...playersData].sort((a, b) => b.amount - a.amount);
 
-    // Calculate total amount donated
     const totalAmount = playersData.reduce((total, player) => total + player.amount, 0);
 
     return (
@@ -16,7 +15,7 @@ const BuyIns = () => {
                 {sortedPlayers.map((player, index) => (
                     <li key={index}>
                         <a href={`https://templeosrs.com/player/overview.php?player=${player.name}`} target="_blank" rel="noopener noreferrer">
-                            <img src={templeIcon} alt="Profile" style={{ width: '20px', marginRight: '5px', verticalAlign: 'middle' }} />
+                            <img src={templeIcon} alt="Profile" className="player-icon" />
                         </a>
                         {player.name} - {player.amount}M
                     </li>

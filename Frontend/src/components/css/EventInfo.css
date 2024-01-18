@@ -1,9 +1,31 @@
+@font-face {
+    font-family: 'OSRSQuill';
+    src: url('./RuneScape-Quill.ttf') format('truetype');
+}
+
 .event-info {
     margin: 10px;
     flex: 1;
+    background-image: url('../../resources/backgrounds/blankClue.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 20px;
 }
 
 .event-info h2 {
+    font-family: 'OSRSQuill', sans-serif;
+    color: #f0bb5e;
     text-align: left;
-    font-size: 50px;
+    font-size: 70px;
+    margin-top: 55px;
+    margin-left: 70px;
+}
+
+.event-info p {
+    font-family: 'OSRSQuill', sans-serif;
+    color: #f0bb5e;
+    margin-left: 70px; 
+    margin-right: 60px;
+    font-size: 35px;
 }

@@ -1,6 +1,12 @@
 .player-buyins {
     margin: 10px;
     flex: 1;
+    background-image: url('../../resources/backgrounds/blankInventory.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-left: 35px;
+    padding-bottom: 20px;
 }
 
 .player-buyins h2 {
@@ -21,4 +27,10 @@
     list-style-type: none;
     padding: 0;
     text-align: left;
+}
+
+.player-icon {
+    width: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
 }

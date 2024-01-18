@@ -28,6 +28,9 @@
     margin-top: 100px;
 }
 
+.team-container h2 {
+    font-size: 40px;
+}
 
 .team-container:first-child {
     order: 1; 
