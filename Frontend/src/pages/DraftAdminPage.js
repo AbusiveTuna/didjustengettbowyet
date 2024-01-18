@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DndProvider, useDrag, useDrop } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import axios from 'axios';
 import './css/DraftAdminPage.css';
 import playersData from '../utilities/playersData';
 
@@ -26,7 +27,6 @@ const DraggablePlayer = ({ name, id, onDrag }) => {
         </div>
     );
 };
-
 
 const TeamContainer = ({ team, players, onDropPlayer, onDragPlayer }) => {
     const [{ isOver }, drop] = useDrop(() => ({
@@ -69,6 +69,21 @@ const DraftAdminPage = () => {
     };
 
 
+    useEffect(() => {
+
+        const updateTeamsInDatabase = () => {
+            const teamTunaPhishPlayers = players.filter(player => player.team === "Team Tuna Phish").map(player => player.name);
+            const teamNsyncPlayers = players.filter(player => player.team === "Team Nsync").map(player => player.name);
+
+            axios.post('https://osrscharterships.com:3000/updateTeams', { teamName: "Team Tuna Phish", players: teamTunaPhishPlayers });
+            axios.post('https://osrscharterships.com:3000/updateTeams', { teamName: "Team Nsync", players: teamNsyncPlayers });
+        };
+
+        if (players.every(player => player.team !== null)) {
+            updateTeamsInDatabase();
+        }
+    }, [players]);
+
     return (
         <DndProvider backend={HTML5Backend}>
             <div className="draft-admin-page">
@@ -79,7 +94,6 @@ const DraftAdminPage = () => {
                 </div>
                 <TeamContainer team="Team Tuna Phish" players={players.filter(player => player.team === "Team Tuna Phish")} onDropPlayer={handleDropPlayer} onDragPlayer={handleDragPlayer} />
                 <TeamContainer team="Team Nsync" players={players.filter(player => player.team === "Team Nsync")} onDropPlayer={handleDropPlayer} onDragPlayer={handleDragPlayer} />
-
             </div>
         </DndProvider>
     );

@@ -1,24 +1,33 @@
 .board-grid {
   display: grid;
   grid-template-columns: repeat(3, 256px);
-  row-gap: 20px;
+  grid-template-rows: repeat(3, 64px) 100px repeat(2, 64px) 100px repeat(2, 64px); /* Groups Cox/Tob/Toa Seperatly */
+  row-gap: 10px;
   column-gap: 0px;
-  border: 2px solid #f9d000;
+  border: 1px solid #f9d000;
 }
 
 .board-grid img {
-  width: 128px;
-  height: 128px;
+  width: 64px;
+  height: 64px;
+}
+
+/* Specific to all 3 events raid, groups Tob/Toa seperatly in 2 by 3 then 1 by 1 rows*/
+.board-grid div:nth-child(19), 
+.board-grid div:nth-child(26) {
+  grid-column: 1 / 4;
 }
 
 @media (max-width: 600px) {
   .board-grid {
-    grid-template-columns: repeat(3, 64px);
-    row-gap: 10px;
+    grid-template-columns: repeat(3, 32px);
+    grid-template-rows: repeat(4, 16px) 50px repeat(2, 16px) 50px repeat(2, 16px); /* Adjust for smaller screens */
+    row-gap: 5px;
   }
   .board-grid img {
-    width: 32px;
-    height: 32px;
+    width: 16px;
+    height: 16px;
   }
 }
-  
+
+

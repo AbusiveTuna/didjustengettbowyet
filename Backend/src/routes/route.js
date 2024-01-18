@@ -19,8 +19,7 @@ router.get('/fetchBoards', async (req, res) => {
     const { teamName, tileStates } = req.body;
   
     try {
-      const teamExists = await pool.query('SELECT * FROM bingoTeams WHERE teamname = $1', [teamName]);
-  
+      const teamExists = checkTeam(teamName);
       if (teamExists.rows.length > 0) {
         await pool.query('UPDATE bingoTeams SET state = $1 WHERE teamname = $2', [JSON.stringify(tileStates), teamName]);
       } else {
@@ -32,7 +31,20 @@ router.get('/fetchBoards', async (req, res) => {
       res.status(500).json({ error: 'An error occurred while updating the board.' });
     }
   });
-  
+
+  router.post('/updateTeams', async (req, res) => {
+    const { teamName, players } = req.body;
+
+    try {
+      if(checkTeam(teamName)){
+        await pool.query('UPDATE bingoTeams SET players = $1 WHERE teamname = $2', [JSON.stringify(players), teamName]);
+      }
+      res.status(200).json({ message: 'Board updated successfully.' });
+      
+    } catch (err) {
+      res.status(500).json({ error: 'An error occured while updating teams'});
+    }
+  });
 
   router.get('/templeDataAll', async (req, res) => {
     const skills = [39, 40, 66, 85, 93, 94];
@@ -61,5 +73,9 @@ router.get('/fetchBoards', async (req, res) => {
       res.status(500).json({ error: 'An error occurred while fetching the data.' });
     }
   });
+
+  async function checkTeam(teamName){
+    return await pool.query('SELECT * FROM bingoTeams WHERE teamname = $1', [teamName]);
+  }
 
 export default router;

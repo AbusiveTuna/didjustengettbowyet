@@ -42,16 +42,18 @@ const images = [
   dhcb,dinh,dclaws,
   hat,top,bottoms,
   maul,kodai,twistedBow,
+
   avernic,rapier,sangstaff,
   justihelm,justichest,justilegs,
-  scythe, fang, lightbearer,
-  ward, masoribody,masorichaps,
-  masorimask,shadow
+  scythe, 
+  
+  fang, lightbearer, ward,
+  masorimask, masoribody,masorichaps,
+  shadow
 ];
 
 const Admin = () => {
   const [boardStates, setBoardStates] = useState([]);
-
   useEffect(() => {
     const teamNames = ["TunaPhish", 'Nsync'];
     axios.get('https://osrscharterships.com:3000/fetchBoards', { params: { teamNames } })
@@ -71,7 +73,16 @@ const Admin = () => {
     })
     .catch(error => {
       console.log('An error occurred while fetching the boards:', error);
+    
+      // Set all board states to false for each team
+      const initialBoardStates = teamNames.map(teamName => ({
+        teamname: teamName,
+        tileStates: images.map(() => false)
+      }));
+    
+      setBoardStates(initialBoardStates);
     });
+    
 }, []);
 
   return (

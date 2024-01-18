@@ -9,9 +9,4 @@ const pool = new Pool({
   database: process.env.DB_NAME
 });
 
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
-
 export default pool;

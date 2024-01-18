@@ -56,14 +56,9 @@ const KC = ({ teamName }) => {
   return (
     <div className="kc-container">
       <div className="kc-group">
-        <p>Cox KC: {kcData.kcCox}</p>
-        <p>Tob KC: {kcData.kcTob}</p>
-        <p>Toa KC: {kcData.kcToa}</p>
-      </div>
-      <div className="kc-group">
-        <p>CM KC: {kcData.kcCM}</p>
-        <p>HMT KC: {kcData.kcHMT}</p>
-        <p>Expert Toa KC: {kcData.kcEToa}</p>
+        <p>Cox KC: {kcData.kcCox} </p> <p> CM KC: {kcData.kcCM}</p>
+        <p>Tob KC: {kcData.kcTob} </p> <p> HMT KC: {kcData.kcHMT}</p>
+        <p>Toa KC: {kcData.kcToa} </p> <p> Expert Toa KC: {kcData.kcEToa}</p>
       </div>
     </div>
   );

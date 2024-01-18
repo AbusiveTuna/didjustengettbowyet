@@ -18,7 +18,6 @@ const StaticTeamContainer = ({ team, players }) => (
 );
 
 const Draft = () => {
-    // Assuming playersData has a 'team' property
     const teamTunaPhishPlayers = playersData.filter(player => player.team === "Team Tuna Phish");
     const teamNsyncPlayers = playersData.filter(player => player.team === "Team Nsync");
     const noTeamPlayers = playersData.filter(player => !player.team);

@@ -40,23 +40,26 @@ import './css/TunaBingoTracker.css';
 const images = [
   arcane, dex, twistyb,
   dhcb,dinh,dclaws,
-  ward,top,bottoms,
+  hat,top,bottoms,
   maul,kodai,twistedBow,
+
   avernic,rapier,sangstaff,
-  masorimask,justichest,justilegs,
-  scythe, fang, lightbearer,
-  hat, masoribody,masorichaps,
-  justihelm,shadow
+  justihelm,justichest,justilegs,
+  scythe, 
+  
+  fang, lightbearer, ward,
+  masorimask, masoribody,masorichaps,
+  shadow
 ];
 
 function setDefaultBoardStates(setBoardStates) {
   const defaultResponse = [
     {
-      teamname: "Failed to load data",
+      teamname: "BEATINGS WILL CONTINUE",
       state: JSON.stringify(Array(26).fill(false)),
     },
     {
-      teamname: 'Try again or complain to tuna',
+      teamname: 'UNTIL MORALE IMPROVES',
       state: JSON.stringify(Array(26).fill(false)),
     },
   ];
