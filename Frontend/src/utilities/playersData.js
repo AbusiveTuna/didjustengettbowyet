@@ -9,7 +9,7 @@ const playersData = [
     { "name": "Connorz", "amount": 20 },
     { "name": "Desports Btw", "amount": 10 },
     { "name": "dj i nn", "amount": 0 },
-    { "name": "F aladorable", "amount:" 60 },
+    { "name": "F aladorable", "amount": 60 },
     { "name": "Floofy", "amount": 10 },
     { "name": "Goose L", "amount": 30 },
     { "name": "Goose World", "amount": 10 },
