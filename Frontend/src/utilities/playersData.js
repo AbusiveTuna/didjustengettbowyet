@@ -8,6 +8,7 @@ const playersData = [
     { "name": "chungy", "amount": 0 },
     { "name": "Connorz", "amount": 20 },
     { "name": "Desports Btw", "amount": 10 },
+    { "name": "Don Corgione", "amount": 10 },
     { "name": "dj i nn", "amount": 0 },
     { "name": "F aladorable", "amount": 60 },
     { "name": "Floofy", "amount": 10 },
@@ -35,6 +36,7 @@ const playersData = [
     { "name": "Shaharrav", "amount": 10 },
     { "name": "Slaymebb", "amount": 47 },
     { "name": "snp500", "amount": 0 },
+    { "name": "Sticky Died", "amount": 10 },
     { "name": "Tiiiiiiiiiim", "amount": 28 },
     { "name": "Zero Rangers", "amount": 10 }    
 ];
