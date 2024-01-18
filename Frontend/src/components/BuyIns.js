@@ -1,13 +1,13 @@
 import React from 'react';
 import playersData from '../utilities/playersData';
-
-import templeIcon from '../resources/templeIcon.png'
-
+import templeIcon from '../resources/templeIcon.png';
 import './css/BuyIns.css';
 
 const BuyIns = () => {
-
     const sortedPlayers = [...playersData].sort((a, b) => b.amount - a.amount);
+
+    // Calculate total amount donated
+    const totalAmount = playersData.reduce((total, player) => total + player.amount, 0);
 
     return (
         <div className="player-buyins">
@@ -22,6 +22,9 @@ const BuyIns = () => {
                     </li>
                 ))}
             </ul>
+            <div className="total-amount">
+                <strong>Total Amount Donated: {totalAmount}M</strong>
+            </div>
         </div>
     );
 };
