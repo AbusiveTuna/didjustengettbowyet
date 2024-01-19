@@ -13,7 +13,7 @@ const playersData = [
     { "name": "F aladorable", "amount": 60 },
     { "name": "Floofy", "amount": 10 },
     { "name": "Kundaii", "amount": 10 },
-    { "name": "Goose L", "amount": 30 },
+    { "name": "Goose L", "amount": 111 },
     { "name": "Goose World", "amount": 110 },
     { "name": "High Bonsai", "amount": 0 },
     { "name": "Imago Loop", "amount": 10 },
