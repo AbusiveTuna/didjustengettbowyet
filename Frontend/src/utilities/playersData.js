@@ -35,7 +35,7 @@ const playersData = [
     { "name": "Sacred Clays", "amount": 10 },
     { "name": "Shaharrav", "amount": 10 },
     { "name": "Slaymebb", "amount": 47 },
-    { "name": "snp500", "amount": 0 },
+    { "name": "snp500", "amount": -100 },
     { "name": "Sticky Died", "amount": 10 },
     { "name": "Tiiiiiiiiiim", "amount": 28 },
     { "name": "Zero Rangers", "amount": 10 }    
