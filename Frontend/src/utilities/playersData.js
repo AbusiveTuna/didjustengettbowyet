@@ -38,6 +38,7 @@ const playersData = [
     { "name": "snp500", "amount": -100 },
     { "name": "Sticky Died", "amount": 10 },
     { "name": "Tiiiiiiiiiim", "amount": 28 },
+    { "name": "Vorkathchan", "amount": 10 },
     { "name": "Zero Rangers", "amount": 10 }    
 ];
 
