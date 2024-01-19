@@ -7,7 +7,7 @@ const EventInfo = () => {
         return new Date(dateString).toLocaleDateString(undefined, options);
     };
 
-    const draftDate = formatDate('2024-01-25T19:30:00');
+    const draftDate = formatDate('2024-01-23T19:30:00');
     const startDate = formatDate('2024-01-26T14:00:00');
     const endDate = formatDate('2024-02-26T14:00:00');
 
