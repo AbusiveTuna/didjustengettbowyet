@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 const playersData = [
-    { "name": "A Sqrd", "amount": 0 },
+    { "name": "A Sqrd", "amount": 10 },
     { "name": "Abrafebre", "amount": 10 },
     { "name": "AbusiveTunaa", "amount": 10 },
     { "name": "a sync", "amount": 45 },
