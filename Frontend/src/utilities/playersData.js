@@ -10,7 +10,7 @@ const playersData = [
     { "name": "Connorz", "amount": 20 },
     { "name": "Desports Btw", "amount": 10 },
     { "name": "Don Corgione", "amount": 10 },
-    { "name": "dj i nn", "amount": 0 },
+    { "name": "dj i nn", "amount": 33 },
     { "name": "F aladorable", "amount": 60 },
     { "name": "Fe brimstone", "amount": 10 },
     { "name": "F loofy", "amount": 10 },
