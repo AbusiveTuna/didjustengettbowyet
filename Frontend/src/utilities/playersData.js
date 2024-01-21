@@ -14,6 +14,7 @@ const playersData = [
     { "name": "Fe brimstone", "amount": 10 },
     { "name": "F loofy", "amount": 10 },
     { "name": "Frelya", "amount": 10 },
+    { "name": "kazpu", "amount": 10 },
     { "name": "Kundaii", "amount": 10 },
     { "name": "Goose L", "amount": 111 },
     { "name": "Goose World", "amount": 112 },
