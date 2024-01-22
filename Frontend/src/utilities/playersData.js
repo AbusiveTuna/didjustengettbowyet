@@ -4,7 +4,7 @@ const playersData = [
     { "name": "Astraleos", "amount": 0 },
     { "name": "Fatboislimrs", "amount": 0 },
     { "name": "Abrafebre", "amount": 10 },
-    { "name": "AbusiveTunaa", "amount": 10 },
+    { "name": "AbusiveTunaa", "amount": 113 },
     { "name": "a sync", "amount": 35 },
     { "name": "ags friend", "amount": 10 },
     { "name": "bongij_mi", "amount": 10 },
