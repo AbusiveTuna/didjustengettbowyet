@@ -42,7 +42,7 @@ const playersData = [
     { "name": "P Dirty soda", "amount": 10 },
     { "name": "Sailor Terry", "amount": 10 },
     { "name": "Sacred Clays", "amount": 10 },
-    { "name": "snoppdoggy", "amount": 50 },
+    { "name": "KinuskiCorie", "amount": 50 },
     { "name": "Shaharrav", "amount": 10 },
     { "name": "Slaymebb", "amount": 47 },
     { "name": "Sticky Died", "amount": 10 },
