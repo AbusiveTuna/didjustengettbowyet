@@ -7,6 +7,7 @@ const playersData = [
     { "name": "ags friend", "amount": 10 },
     { "name": "bongij_mi", "amount": 10 },
     { "name": "Combatt1ron", "amount": 10 },
+    { "name": "Cuhmmies", "amount": 11 },
     { "name": "Connorz", "amount": 20 },
     { "name": "Desports Btw", "amount": 10 },
     { "name": "Don Corgione", "amount": 10 },
