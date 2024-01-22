@@ -22,6 +22,7 @@ const playersData = [
     { "name": "Goose World", "amount": 112 },
     { "name": "High Bonsai", "amount": 10 },
     { "name": "Imago Loop", "amount": 10 },
+    { "name": "IM Ivar", "amount": 10 },
     { "name": "Iron Chkn", "amount": 10 },
     { "name": "Ironcg", "amount": 20 },
     { "name": "J mes", "amount": 10 },
