@@ -2,7 +2,7 @@
 const playersData = [
     { "name": "A Sqrd", "amount": 10 },
     { "name": "Astraleos", "amount": 0 },
-    { "name": "Fatboislimrs", "amount": 0 },
+    { "name": "Fatboislimrs", "amount": 10 },
     { "name": "Abrafebre", "amount": 10 },
     { "name": "AbusiveTunaa", "amount": 113 },
     { "name": "a sync", "amount": 35 },
@@ -32,7 +32,7 @@ const playersData = [
     { "name": "J mes", "amount": 10 },
     { "name": "Joan Of Arf", "amount": 10 },
     { "name": "Justen", "amount": 10 },
-    { "name": "Lord Oziach", "amount": 0 },
+    { "name": "Lord Oziach", "amount": 10 },
     { "name": "MilkMate", "amount": 0 },
     { "name": "MXIIA", "amount": 10 },
     { "name": "Nerding Out", "amount": 10 },
