@@ -38,7 +38,7 @@ const playersData = [
     { "name": "MilkMate", "amount": 0 },
     { "name": "MXIIA", "amount": 10 },
     { "name": "Nerding Out", "amount": 10 },
-    { "name": "Noble Mobile", "amount": 40 },
+    { "name": "Noble Mobile", "amount": 200 },
     { "name": "I got no Job", "amount": 10 },
     { "name": "I Run East", "amount": 10 },
     { "name": "Ninef", "amount": 30 },
