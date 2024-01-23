@@ -79,7 +79,7 @@ const TunaBingoTracker = () => {
   useEffect(() => {
     const teamNames = ["TunaPhish", 'Nsync'];
 
-    axios.get('https://osrscharterships.com:3000/fetchBoardsTunaBingo', { params: { teamNames } })
+    axios.get('https://osrscharterships.com:3000/fetchBoards', { params: { teamNames } })
       .then(response => {
         let parsedBoardStates = response.data.map(item => ({
           ...item,
