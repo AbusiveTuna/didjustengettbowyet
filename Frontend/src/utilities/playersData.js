@@ -24,7 +24,7 @@ const playersData = [
     { "name": "kazpu", "amount": 10 },
     { "name": "Kundaii", "amount": 10 },
     { "name": "Goose L", "amount": 111 },
-    { "name": "Goose World", "amount": 112 },
+    { "name": "Goose World", "amount": 122 },
     { "name": "High Bonsai", "amount": 10 },
     { "name": "Imago Loop", "amount": 10 },
     { "name": "IM Ivar", "amount": 10 },
