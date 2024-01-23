@@ -23,7 +23,7 @@ const credentials = {
 };
 
 app.use(cors({
-    origin: ['https://didjustengettbowyet.com', 'https://localhost:3000'],
+    origin: ['https://didjustengettbowyet.com', 'https://localhost:3000', 'https://verbose-memory-5p5q6rpqp9q24jp9-3000.app.github.dev'],
     optionSuccessStatus: 200
 }));
 
