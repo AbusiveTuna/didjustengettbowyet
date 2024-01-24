@@ -13,6 +13,7 @@ const playersData = [
     { "name": "Combatt1ron", "amount": 10 },
     { "name": "Cuhmmies", "amount": 11 },
     { "name": "Connorz", "amount": 20 },
+    { "name": "Deus Iron", "amount": 20 },
     { "name": "Desports Btw", "amount": 10 },
     { "name": "Don Corgione", "amount": 10 },
     { "name": "dj i nn", "amount": 33 },
