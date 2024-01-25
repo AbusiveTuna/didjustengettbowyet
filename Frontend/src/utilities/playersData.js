@@ -36,7 +36,7 @@ const playersData = [
     { "name": "Justen", "amount": 10 },
     { "name": "Lord Oziach", "amount": 10 },
     { "name": "Matt93", "amount": 10 },
-    { "name": "MilkMate", "amount": 0 },
+    { "name": "MilkMate", "amount": 10 },
     { "name": "MXIIA", "amount": 10 },
     { "name": "Nerding Out", "amount": 10 },
     { "name": "Noble Mobile", "amount": 200 },
