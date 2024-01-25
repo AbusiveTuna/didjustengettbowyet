@@ -2,15 +2,6 @@ import React from 'react';
 import './css/EventInfo.css';
 
 const EventInfo = () => {
-    const formatDate = (dateString) => {
-        const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' };
-        return new Date(dateString).toLocaleDateString(undefined, options);
-    };
-
-    const draftDate = formatDate('2024-01-23T19:30:00');
-    const startDate = formatDate('2024-01-26T14:00:00');
-    const endDate = formatDate('2024-02-26T14:00:00');
-
     return (
         <div className="event-info">
             <h2>Event Details</h2>
