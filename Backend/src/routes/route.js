@@ -26,7 +26,8 @@ router.get('/fetchBoards', async (req, res) => {
     const { teamName, tileStates } = req.body;
   
     try {
-      const teamExists = checkTeam(teamName);
+      const teamExists = await checkTeam(teamName);
+      console.log(teamExists);
       if (teamExists.rows.length > 0) {
         await pool.query('UPDATE bingoTeams SET state = $1 WHERE teamname = $2', [JSON.stringify(tileStates), teamName]);
       } else {
