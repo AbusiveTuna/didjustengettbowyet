@@ -62,7 +62,7 @@ const Admin = () => {
         ...item,
         tileStates: JSON.parse(item.state),
       }));
-
+      console.log(parsedBoardStates);
       parsedBoardStates = parsedBoardStates.sort((a, b) => {
         if (a.teamname === "TunaPhish") return -1;
         if (b.teamname === "TunaPhish") return 1;
