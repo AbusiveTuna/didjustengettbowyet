@@ -4,16 +4,28 @@ import axios from 'axios';
 
 const router = Router();
 
+async function checkTeam(teamName) {
+  const { rows } = await pool.query('SELECT * FROM bingoTeams WHERE teamname = $1', [teamName]);
+  return rows.length > 0;
+}
+
 router.get('/fetchBoards', async (req, res) => {
-    const { teamNames } = req.query;
-    try {
-      const { rows } = await pool.query('SELECT * FROM bingoTeams WHERE teamname = ANY($1::varchar[])', [teamNames]);
-      res.json(rows);
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ error: 'An error occurred while fetching the boards.' });
+  const { teamNames } = req.query;
+  try {
+    for (const teamName of teamNames) {
+      const teamExists = await checkTeam(teamName);
+      if (!teamExists) {
+        await pool.query('INSERT INTO bingoTeams (teamname, state) VALUES ($1, $2)', [teamName, JSON.stringify([])]); // Assuming default state is an empty array
+      }
     }
-  });  
+    const { rows } = await pool.query('SELECT * FROM bingoTeams WHERE teamname = ANY($1::varchar[])', [teamNames]);
+    res.json(rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'An error occurred while fetching the boards.' });
+  }
+});
+
   
   router.post('/updateBoard', async (req, res) => {
     const { teamName, tileStates } = req.body;
