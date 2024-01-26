@@ -4,11 +4,6 @@ import axios from 'axios';
 
 const router = Router();
 
-async function checkTeam(teamName) {
-  const { rows } = await pool.query('SELECT * FROM bingoTeams WHERE teamname = $1', [teamName]);
-  return rows.length > 0;
-}
-
 router.get('/fetchBoards', async (req, res) => {
   const { teamNames } = req.query;
   try {
