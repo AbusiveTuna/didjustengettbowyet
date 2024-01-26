@@ -9,6 +9,7 @@ router.get('/fetchBoards', async (req, res) => {
   try {
     for (const teamName of teamNames) {
       const teamExists = await checkTeam(teamName);
+      console.log(teamExists);
       if (!teamExists) {
         await pool.query('INSERT INTO bingoTeams (teamname, state) VALUES ($1, $2)', [teamName, JSON.stringify([])]); // Assuming default state is an empty array
       }
