@@ -57,7 +57,7 @@ router.get('/fetchBoards', async (req, res) => {
 
   router.get('/templeDataAll', async (req, res) => {
     const skills = [39, 40, 66, 85, 93, 94];
-    const baseUrl = 'https://templeosrs.com/api/competition_info.php?id=23801&skill=';
+    const baseUrl = 'https://templeosrs.com/api/competition_info.php?id=24834&skill=';
   
     try {
       const requests = skills.map(skill => axios.get(`${baseUrl}${skill}`));
