@@ -23,7 +23,7 @@ function App() {
             <Route path="/draft" element={<Draft/>} />
             <Route path="/draftAdmin" element={<DraftAdmin/>} />
             <Route path="/previousEvents" element={<PreviousEvents/>} />
-            <Route path="/tunaBingoAdminPage" element={<AdminPage/>}/>
+            <Route path="/thisPageDoesntHaveSecuritySoDontGiveThisUrlAway" element={<AdminPage/>}/>
             </Routes>
             
           </div>
