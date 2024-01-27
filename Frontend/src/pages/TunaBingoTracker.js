@@ -53,34 +53,34 @@ const images = [
 ];
 
 const imageValues = {
-  arcane: 1, 
-  dex: 1,
-  twistyb: 2,
-  dhcb: 2,
-  dinh: 3,
-  dclaws: 3,
-  hat: 3,
-  top: 3,
-  bottoms: 3,
-  maul: 5,
-  kodai: 5,
-  twistedBow: 5,
+  [arcane]: 1, 
+  [dex]: 1,
+  [twistyb]: 2,
+  [dhcb]: 2,
+  [dinh]: 3,
+  [dclaws]: 3,
+  [hat]: 3,
+  [top]: 3,
+  [bottoms]: 3,
+  [maul]: 5,
+  [kodai]: 5,
+  [twistedBow]: 5,
 
-  avernic: 1,
-  rapier: 3,
-  sangstaff: 3,
-  justihelm: 3,
-  justichest: 3,
-  justilegs: 3,
-  scythe: 5,
+  [avernic]: 1,
+  [rapier]: 3,
+  [sangstaff]: 3,
+  [justihelm]: 3,
+  [justichest]: 3,
+  [justilegs]: 3,
+  [scythe]: 5,
 
-  fang: 1,
-  lightbearer: 1,
-  ward: 2,
-  masorimask: 3,
-  masoribody: 3,
-  masorichaps: 3,
-  shadow: 5
+  [fang]: 1,
+  [lightbearer]: 1,
+  [ward]: 2,
+  [masorimask]: 3,
+  [masoribody]: 3,
+  [masorichaps]: 3,
+  [shadow]: 5
 };
 
 
@@ -111,37 +111,34 @@ const TunaBingoTracker = () => {
   useEffect(() => {
     const teamNames = ["TunaPhish", 'Nsync'];
 
-    axios.get('https://osrscharterships.com:3000/fetchBoards', { params: { teamNames } })
-      .then(response => {
-        let parsedBoardStates = response.data.map(item => ({
-          ...item,
-          tileStates: JSON.parse(item.state),
-        }));
-
-        parsedBoardStates = parsedBoardStates.sort((a, b) => {
-          if (a.teamname === "TunaPhish") return -1;
-          if (b.teamname === "TunaPhish") return 1;
-          return 0;
-        });
-
-        setBoardStates(parsedBoardStates);
-      })
-      .catch(error => {
-        console.log('An error occurred while fetching the boards:', error);
-        setDefaultBoardStates(setBoardStates);
+  axios.get('https://osrscharterships.com:3000/fetchBoards', { params: { teamNames } })
+    .then(response => {
+      let parsedBoardStates = response.data.map(item => ({
+        ...item,
+        tileStates: JSON.parse(item.state),
+      }));
+  
+      parsedBoardStates = parsedBoardStates.sort((a, b) => {
+        if (a.teamname === "TunaPhish") return -1;
+        if (b.teamname === "TunaPhish") return 1;
+        return 0;
       });
-  }, []);
-
-   const boardStatesWithTotals = boardStates.map(boardState => {
-      const totalValue = boardState.tileStates.reduce((total, tileState, index) => {
-        return tileState ? total + imageValues[images[index]] : total;
-      }, 0);
-
-      return { ...boardState, totalValue };
+  
+      const boardStatesWithTotals = parsedBoardStates.map(boardState => {
+        const totalValue = boardState.tileStates.reduce((total, tileState, index) => {
+          return tileState ? total + imageValues[images[index]] : total;
+        }, 0);
+      
+        return { ...boardState, totalValue };
+      });
+  
+      setBoardStates(boardStatesWithTotals);
+    })
+    .catch(error => {
+      console.log('An error occurred while fetching the boards:', error);
+      setDefaultBoardStates(setBoardStates);
     });
 
-    setBoardStates(boardStatesWithTotals);
-  }, []);
 
   return (
     <div className="tuna-bingo-tracker">
