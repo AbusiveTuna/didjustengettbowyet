@@ -49,7 +49,7 @@ const playersData = [
     { "name": "Sacred Clays", "amount": 10 },
     { "name": "KinuskiCorie", "amount": 50 },
     { "name": "Shaharrav", "amount": 10 },
-    { "name": "S7efen", "amount": 10 },
+    { "name": "badass1337", "amount": 10 },
     { "name": "Slaymebb", "amount": 47 },
     { "name": "Sticky Died", "amount": 10 },
     { "name": "Tiiiiiiiiiim", "amount": 28 },
