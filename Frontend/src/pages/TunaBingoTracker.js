@@ -108,8 +108,8 @@ function setDefaultBoardStates(setBoardStates) {
 const TunaBingoTracker = () => {
   const [boardStates, setBoardStates] = useState([]);
 
-  useEffect(() => {
-    const teamNames = ["TunaPhish", 'Nsync'];
+useEffect(() => {
+  const teamNames = ["TunaPhish", 'Nsync'];
 
   axios.get('https://osrscharterships.com:3000/fetchBoards', { params: { teamNames } })
     .then(response => {
@@ -117,29 +117,29 @@ const TunaBingoTracker = () => {
         ...item,
         tileStates: JSON.parse(item.state),
       }));
-  
+
       parsedBoardStates = parsedBoardStates.sort((a, b) => {
         if (a.teamname === "TunaPhish") return -1;
         if (b.teamname === "TunaPhish") return 1;
         return 0;
       });
-  
+
       const boardStatesWithTotals = parsedBoardStates.map(boardState => {
         const totalValue = boardState.tileStates.reduce((total, tileState, index) => {
           return tileState ? total + imageValues[images[index]] : total;
         }, 0);
-      
+
         return { ...boardState, totalValue };
       });
-  
+
       setBoardStates(boardStatesWithTotals);
     })
     .catch(error => {
       console.log('An error occurred while fetching the boards:', error);
       setDefaultBoardStates(setBoardStates);
     });
-
-
+}, []);
+  
   return (
     <div className="tuna-bingo-tracker">
       {boardStates.map((boardState, index) => (
