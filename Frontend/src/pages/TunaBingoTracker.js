@@ -145,7 +145,7 @@ useEffect(() => {
       {boardStates.map((boardState, index) => (
         <div key={index}>
           <Board teamName={boardState.teamname} images={images} isClickable={false} tileStates={boardState.tileStates} />
-          <div>Total Value: {boardState.totalValue}</div>
+          <div>Total Points: {boardState.totalValue}</div>
           <KC teamName={boardState.teamname} />
           
         </div>
