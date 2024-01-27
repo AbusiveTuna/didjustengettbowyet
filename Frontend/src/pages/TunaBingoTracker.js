@@ -52,6 +52,38 @@ const images = [
   shadow
 ];
 
+const imageValues = {
+  arcane: 1, 
+  dex: 1,
+  twistyb: 2,
+  dhcb: 2,
+  dinh: 3,
+  dclaws: 3,
+  hat: 3,
+  top: 3,
+  bottoms: 3,
+  maul: 5,
+  kodai: 5,
+  twistedBow: 5,
+
+  avernic: 1,
+  rapier: 3,
+  sangstaff: 3,
+  justihelm: 3,
+  justichest: 3,
+  justilegs: 3,
+  scythe: 5,
+
+  fang: 1,
+  lightbearer: 1,
+  ward: 2,
+  masorimask: 3,
+  masoribody: 3,
+  masorichaps: 3,
+  shadow: 5
+};
+
+
 function setDefaultBoardStates(setBoardStates) {
   const defaultResponse = [
     {
@@ -100,12 +132,25 @@ const TunaBingoTracker = () => {
       });
   }, []);
 
+   const boardStatesWithTotals = boardStates.map(boardState => {
+      const totalValue = boardState.tileStates.reduce((total, tileState, index) => {
+        return tileState ? total + imageValues[images[index]] : total;
+      }, 0);
+
+      return { ...boardState, totalValue };
+    });
+
+    setBoardStates(boardStatesWithTotals);
+  }, []);
+
   return (
     <div className="tuna-bingo-tracker">
       {boardStates.map((boardState, index) => (
         <div key={index}>
           <Board teamName={boardState.teamname} images={images} isClickable={false} tileStates={boardState.tileStates} />
-          <KC teamName={boardState.teamname} /> {}
+          <div>Total Value: {boardState.totalValue}</div>
+          <KC teamName={boardState.teamname} />
+          
         </div>
       ))}
     </div>
