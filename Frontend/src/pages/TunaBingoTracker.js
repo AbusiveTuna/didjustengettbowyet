@@ -85,7 +85,11 @@ const imageValues = {
 
 const TunaBingoTracker = () => {
   const [boardStates, setBoardStates] = useState([]);
-  const startingPoints = { 'TunaPhish': 0, 'Nsync': 5 };
+
+  const startingPoints = useMemo(() => ({
+    'TunaPhish': 0,
+    'Nsync': 5
+  }), []);
 
   useEffect(() => {
     const teamNames = ["TunaPhish", 'Nsync'];
@@ -115,6 +119,7 @@ const TunaBingoTracker = () => {
       })
       .catch(error => {
         console.log('An error occurred while fetching the boards:', error);
+       
       });
   }, [startingPoints]); 
   
