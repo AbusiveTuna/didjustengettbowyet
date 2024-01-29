@@ -107,38 +107,64 @@ function setDefaultBoardStates(setBoardStates) {
 
 const TunaBingoTracker = () => {
   const [boardStates, setBoardStates] = useState([]);
+  const [startingPoints, setStartingPoints] = useState({ 'TunaPhish': 0, 'Nsync': 5 });
 
-useEffect(() => {
-  const teamNames = ["TunaPhish", 'Nsync'];
+  useEffect(() => {
+    const teamNames = ["TunaPhish", 'Nsync'];
 
-  axios.get('https://osrscharterships.com:3000/fetchBoards', { params: { teamNames } })
-    .then(response => {
-      let parsedBoardStates = response.data.map(item => ({
-        ...item,
-        tileStates: JSON.parse(item.state),
-      }));
+    axios.get('https://osrscharterships.com:3000/fetchBoards', { params: { teamNames } })
+      .then(response => {
+        let parsedBoardStates = response.data.map(item => ({
+          ...item,
+          tileStates: JSON.parse(item.state),
+        }));
 
-      parsedBoardStates = parsedBoardStates.sort((a, b) => {
-        if (a.teamname === "TunaPhish") return -1;
-        if (b.teamname === "TunaPhish") return 1;
-        return 0;
+        parsedBoardStates = parsedBoardStates.sort((a, b) => {
+          if (a.teamname === "TunaPhish") return -1;
+          if (b.teamname === "TunaPhish") return 1;
+          return 0;
+        });
+
+        const boardStatesWithTotals = parsedBoardStates.map(boardState => {
+          const totalValue = boardState.tileStates.reduce((total, tileState, index) => {
+            return tileState ? total + imageValues[images[index]] : total;
+          }, 0) + (startingPoints[boardState.teamname] || 0);
+
+          return { ...boardState, totalValue };
+        });
+
+        setBoardStates(boardStatesWithTotals);
+      })
+      .catch(error => {
+        console.log('An error occurred while fetching the boards:', error);
+        setDefaultBoardStates(setBoardStates);
       });
+  }, [startingPoints]);
 
-      const boardStatesWithTotals = parsedBoardStates.map(boardState => {
-        const totalValue = boardState.tileStates.reduce((total, tileState, index) => {
-          return tileState ? total + imageValues[images[index]] : total;
-        }, 0);
+  function setDefaultBoardStates(setBoardStates) {
+    const defaultResponse = [
+      {
+        teamname: "BEATINGS WILL CONTINUE",
+        state: JSON.stringify(Array(26).fill(false)),
+      },
+      {
+        teamname: 'UNTIL MORALE IMPROVES',
+        state: JSON.stringify(Array(26).fill(false)),
+      },
+    ];
 
-        return { ...boardState, totalValue };
-      });
+    const parsedBoardStates = defaultResponse.map(function(item) {
+      const newItem = Object.assign({}, item);
+      newItem.tileStates = JSON.parse(item.state);
+      const totalValue = newItem.tileStates.reduce((total, tileState, index) => {
+        return tileState ? total + imageValues[images[index]] : total;
+      }, 0) + (startingPoints[newItem.teamname] || 0);
 
-      setBoardStates(boardStatesWithTotals);
-    })
-    .catch(error => {
-      console.log('An error occurred while fetching the boards:', error);
-      setDefaultBoardStates(setBoardStates);
-    });
-}, []);
+      return { ...newItem, totalValue };
+    });  
+
+    setBoardStates(parsedBoardStates);
+  }
   
   return (
     <div className="tuna-bingo-tracker">
