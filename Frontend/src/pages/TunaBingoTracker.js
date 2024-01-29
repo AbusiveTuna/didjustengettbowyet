@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,useMemo  } from 'react';
 import Board from '../components/Board';
 import axios from 'axios';
 import KC from '../components/KC';
