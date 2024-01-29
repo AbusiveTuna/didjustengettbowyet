@@ -85,7 +85,7 @@ const imageValues = {
 
 const TunaBingoTracker = () => {
   const [boardStates, setBoardStates] = useState([]);
-  const startingPoints = { 'TunaPhish': 100, 'Nsync': 0 }; // Static starting points
+  const startingPoints = { 'TunaPhish': 0, 'Nsync': 5 }; // Static starting points
 
   useEffect(() => {
     const teamNames = ["TunaPhish", 'Nsync'];
