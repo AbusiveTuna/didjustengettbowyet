@@ -83,31 +83,9 @@ const imageValues = {
   [shadow]: 5
 };
 
-
-function setDefaultBoardStates(setBoardStates) {
-  const defaultResponse = [
-    {
-      teamname: "BEATINGS WILL CONTINUE",
-      state: JSON.stringify(Array(26).fill(false)),
-    },
-    {
-      teamname: 'UNTIL MORALE IMPROVES',
-      state: JSON.stringify(Array(26).fill(false)),
-    },
-  ];
-
-  const parsedBoardStates = defaultResponse.map(function(item) {
-    const newItem = Object.assign({}, item);
-    newItem.tileStates = JSON.parse(item.state);
-    return newItem;
-  });  
-
-  setBoardStates(parsedBoardStates);
-}
-
 const TunaBingoTracker = () => {
   const [boardStates, setBoardStates] = useState([]);
-  const [startingPoints, setStartingPoints] = useState({ 'TunaPhish': 0, 'Nsync': 5 });
+  const startingPoints = { 'TunaPhish': 100, 'Nsync': 0 }; // Static starting points
 
   useEffect(() => {
     const teamNames = ["TunaPhish", 'Nsync'];
@@ -128,7 +106,7 @@ const TunaBingoTracker = () => {
         const boardStatesWithTotals = parsedBoardStates.map(boardState => {
           const totalValue = boardState.tileStates.reduce((total, tileState, index) => {
             return tileState ? total + imageValues[images[index]] : total;
-          }, 0) + (startingPoints[boardState.teamname] || 0);
+          }, startingPoints[boardState.teamname] || 0);
 
           return { ...boardState, totalValue };
         });
@@ -137,34 +115,8 @@ const TunaBingoTracker = () => {
       })
       .catch(error => {
         console.log('An error occurred while fetching the boards:', error);
-        setDefaultBoardStates(setBoardStates);
       });
-  }, [startingPoints]);
-
-  function setDefaultBoardStates(setBoardStates) {
-    const defaultResponse = [
-      {
-        teamname: "BEATINGS WILL CONTINUE",
-        state: JSON.stringify(Array(26).fill(false)),
-      },
-      {
-        teamname: 'UNTIL MORALE IMPROVES',
-        state: JSON.stringify(Array(26).fill(false)),
-      },
-    ];
-
-    const parsedBoardStates = defaultResponse.map(function(item) {
-      const newItem = Object.assign({}, item);
-      newItem.tileStates = JSON.parse(item.state);
-      const totalValue = newItem.tileStates.reduce((total, tileState, index) => {
-        return tileState ? total + imageValues[images[index]] : total;
-      }, 0) + (startingPoints[newItem.teamname] || 0);
-
-      return { ...newItem, totalValue };
-    });  
-
-    setBoardStates(parsedBoardStates);
-  }
+  }, []); 
   
   return (
     <div className="tuna-bingo-tracker">
@@ -181,3 +133,4 @@ const TunaBingoTracker = () => {
 };
 
 export default TunaBingoTracker;
+
