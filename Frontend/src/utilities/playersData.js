@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 const playersData = [
     { "name": "A Sqrd", "amount": 10 },
-    { "name": "Astraleos", "amount": 0 },
+    { "name": "Astraleos", "amount": 25 },
     { "name": "Fatboislimrs", "amount": 10 },
     { "name": "Abrafebre", "amount": 11 },
-    { "name": "AbusiveTunaa", "amount": 173 },
+    { "name": "AbusiveTunaa", "amount": 213 },
     { "name": "a sync", "amount": 35 },
     { "name": "ags friend", "amount": 10 },
     { "name": "bongij_mi", "amount": 10 },
